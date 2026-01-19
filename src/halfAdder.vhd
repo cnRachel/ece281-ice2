@@ -9,9 +9,10 @@
 --| USAF Academy, CO 80840           \____//____/_/  |_/_/   /_/  |_|
 --| 
 --| ---------------------------------------------------------------------------
---|
+--| FILENAME      : halfAdder.vhd
+--| AUTHOR        : C3C Rachel Chen
 --| DESCRIPTION   : This file implements a one bit half adder.
---|
+--| DOCUMENTATION : None
 --+----------------------------------------------------------------------------
 --|
 --| NAMING CONVENSIONS :
