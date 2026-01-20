@@ -16,7 +16,6 @@ jobs:
         with:
           version: nightly
           backend: llvm
-          investigate: true
       - run: ghdl --version
       - run: ghdl analyze -v src/${TESTBENCH_ENTITY}.vhd
       - run: ghdl analyze -v src/${TESTBENCH_ENTITY}_tb.vhd
