@@ -9,15 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Setup GHDL nightly
-        uses: ghdl/setup-ghdl-ci@nightly
-        with:
-          backend: llvm
-      - run: ghdl --version
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      - name: Setup GHDL nightly
+        uses: ghdl/setup-ghdl@v1
+        with:
+          version: nightly
+          backend: llvm
+          investigate: true
+      - run: ghdl --version
       - run: ghdl analyze -v src/${TESTBENCH_ENTITY}.vhd
       - run: ghdl analyze -v src/${TESTBENCH_ENTITY}_tb.vhd
       - run: ls -R
       - run: ghdl elaborate -v ${TESTBENCH_ENTITY}_tb
-      - run: ghdl run -v --assert-level=error ${TESTBENCH_ENTITY}_tb --stop-time=1us
+      - run: ghdl run -v ${TESTBENCH_ENTITY}_tb --assert-level=error --stop-time=1us
